@@ -1,16 +1,130 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Duks oasis</title>
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-        <h1 id="homescreentitle">DUKS OASIS</h1>
-        <h2>have fun :)</h2>
-        <div>
-            <a href="/protectthegrave/">
-                <img src="/button-images/protectthegrave.png" alt="Protect the Grave" style="max-width: 500px;">
-            </a>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duks Oasis</title>
+    <style>
+        /* Basic page styling */
+        body {
+            background-color: #121212; /* Dark background */
+            color: #fff; /* White text */
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: flex-start; /* Align content to the left */
+            align-items: center; /* Align items to the top-left */
+            height: 100vh;
+            margin: 0;
+            padding: 215px; /* Add padding for better spacing */
+            text-align: left; /* Align text to the left */
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            padding: 50px;
+            text-align: center;
+        }
+
+        /* Styling for the slider container */
+        .slider-container {
+            width: 250%; /* Controls the width of the slider */
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center; /* Center align the slider and text */
+        }
+
+        /* Slider Styling */
+        input[type="range"] {
+            width: 100%;
+            height: 15px;
+            background: #444;
+            border-radius: 10px;
+            outline: none;
+            appearance: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            appearance: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #888;
+            cursor: pointer;
+        }
+
+        /* Text that changes with slider value */
+        .slider-text {
+            font-size: 1.5em;
+            margin-top: 20px;
+            text-align: center; /* Center align the text */
+        }
+
+        .link {
+            text-decoration: none;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <h1>Duks Oas<a class="link" href=https://duksoasis.github.io">i</a>s</h1>
+
+        <!-- Slider container -->
+        <div class="slider-container">
+            <input type="range" id="slider" min="0" max="22" step="1" value="0">
+            
+            <!-- Text that will change based on slider value -->
+            <div id="sliderText" class="slider-text">
+                Text for value 0
+            </div>
         </div>
-    </body>
+    </div>
+
+    <script>
+        // Array holding the text values for each slider position
+        const sliderTexts = [
+            "Welcome :]",  // Text for slider value 0
+            "There's nothing here.",
+            "",
+            "",
+            "",
+            "No really there's nothing here.",
+            "",
+            "",
+            "Lets play rock, paper, scisors",  // Text for slider value 1
+            "rock",  // Text for slider value 2
+            "paper",  // Text for slider value 3
+            "scisors",   // Text for slider value 4
+            "SHOOT!",
+            "I picked gun so I win :]",
+            "What are you still doing here?",
+            ".",
+            "..",
+            "...",
+            "....",
+            ".....",
+            "......",
+            "ok fine... you win",
+            "click the i"
+        ];
+
+        const slider = document.getElementById("slider");
+        const sliderText = document.getElementById("sliderText");
+
+        // Function to update the text based on the slider's value
+        function updateText() {
+            const value = slider.value; // Get the slider's current value
+            sliderText.textContent = sliderTexts[value]; // Update the text
+        }
+
+        // Attach the input event to the slider
+        slider.addEventListener("input", updateText);
+
+        // Initial text update when the page loads
+        updateText();
+    </script>
+
+</body>
 </html>
